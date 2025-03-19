@@ -6,7 +6,6 @@ import net.jackclarke95.jacks_masonry.block.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -16,13 +15,19 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         BlockStateModelGenerator.BlockTexturePool gildedBlackstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GILDED_BLACKSTONE);
-
-        gildedBlackstonePool.stairs(ModBlocks.GILDED_BLACKSTONE_STAIRS);
-        gildedBlackstonePool.wall(ModBlocks.GILDED_BLACKSTONE_WALL);
         gildedBlackstonePool.slab(ModBlocks.GILDED_BLACKSTONE_SLAB);
+        gildedBlackstonePool.wall(ModBlocks.GILDED_BLACKSTONE_WALL);
+        gildedBlackstonePool.stairs(ModBlocks.GILDED_BLACKSTONE_STAIRS);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COBBLED_BLACKSTONE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        BlockStateModelGenerator.BlockTexturePool cobbledBlackstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.COBBLED_BLACKSTONE);
+        cobbledBlackstonePool.slab(ModBlocks.COBBLED_BLACKSTONE_SLAB);
+        cobbledBlackstonePool.wall(ModBlocks.COBBLED_BLACKSTONE_WALL);
+        cobbledBlackstonePool.stairs(ModBlocks.COBBLED_BLACKSTONE_STAIRS);
+
+        BlockStateModelGenerator.BlockTexturePool gildedCobbledBlackstonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        gildedCobbledBlackstonePool.slab(ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB);
+        gildedCobbledBlackstonePool.wall(ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL);
+        gildedCobbledBlackstonePool.stairs(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS);
     }
 
     @Override

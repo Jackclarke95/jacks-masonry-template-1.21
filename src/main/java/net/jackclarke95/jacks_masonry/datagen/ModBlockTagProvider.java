@@ -16,10 +16,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(ModBlocks.GILDED_BLACKSTONE_STAIRS)
-                .add(ModBlocks.GILDED_BLACKSTONE_WALL)
                 .add(ModBlocks.GILDED_BLACKSTONE_SLAB)
+                .add(ModBlocks.GILDED_BLACKSTONE_WALL)
+                .add(ModBlocks.GILDED_BLACKSTONE_STAIRS)
                 .add(ModBlocks.COBBLED_BLACKSTONE)
-                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE);
+                .add(ModBlocks.COBBLED_BLACKSTONE_SLAB)
+                .add(ModBlocks.COBBLED_BLACKSTONE_WALL)
+                .add(ModBlocks.COBBLED_BLACKSTONE_STAIRS)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS);
     }
 }

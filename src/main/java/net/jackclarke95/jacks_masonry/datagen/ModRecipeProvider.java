@@ -24,16 +24,40 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter recipeExporter) {
-        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
-
-        createStairsRecipe(ModBlocks.GILDED_BLACKSTONE_STAIRS, Ingredient.ofItems(Blocks.GILDED_BLACKSTONE, Blocks.PURPUR_PILLAR))
+        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
+        createStairsRecipe(ModBlocks.GILDED_BLACKSTONE_STAIRS, Ingredient.ofItems(Blocks.GILDED_BLACKSTONE))
                 .criterion("has_gilded_blackstone", conditionsFromItem(Blocks.GILDED_BLACKSTONE))
                 .offerTo(recipeExporter);
 
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
+        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
+        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
+        createStairsRecipe(ModBlocks.COBBLED_BLACKSTONE_STAIRS, Ingredient.ofItems(ModBlocks.COBBLED_BLACKSTONE, Blocks.BLACKSTONE))
+                .criterion("has_cobbled_blackstone", conditionsFromItem(Blocks.BLACKSTONE))
+                .criterion("has_cobbled_blackstone", conditionsFromItem(ModBlocks.COBBLED_BLACKSTONE))
+                .offerTo(recipeExporter);
+
+        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        createStairsRecipe(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, Ingredient.ofItems(ModBlocks.GILDED_COBBLED_BLACKSTONE))
+                .criterion("has_gilded_cobbled_blackstone", conditionsFromItem(ModBlocks.GILDED_COBBLED_BLACKSTONE))
+                .offerTo(recipeExporter);
+
         offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
         offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_STAIRS, Blocks.GILDED_BLACKSTONE);
+
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, ModBlocks.COBBLED_BLACKSTONE);
+
         offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE, Blocks.BLACKSTONE);
 
         List<ItemConvertible> GILDED_BLACKSTONE_SMELTABLES = List.of(ModBlocks.GILDED_COBBLED_BLACKSTONE);
@@ -45,11 +69,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("cgc")
                 .pattern("ccc")
                 .input('c', ModBlocks.COBBLED_BLACKSTONE)
-                .input('g', Items.GOLD_INGOT)
+                .input('g', Blocks.GOLD_BLOCK)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.COBBLED_BLACKSTONE),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.COBBLED_BLACKSTONE))
-                .criterion(FabricRecipeProvider.hasItem(Items.GOLD_INGOT),
-                        FabricRecipeProvider.conditionsFromItem(Items.GOLD_INGOT))
+                .criterion(FabricRecipeProvider.hasItem(Items.GOLD_BLOCK),
+                        FabricRecipeProvider.conditionsFromItem(Items.GOLD_BLOCK))
                 .offerTo(recipeExporter);
     }
 }

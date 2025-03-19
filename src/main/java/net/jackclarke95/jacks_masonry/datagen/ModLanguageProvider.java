@@ -15,11 +15,16 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
-
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_STAIRS, "Gilded Blackstone Stairs");
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_WALL, "Gilded Blackstone Wall");
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_SLAB, "Gilded Blackstone Slab");
         translationBuilder.add(ModBlocks.COBBLED_BLACKSTONE, "Cobbled Blackstone");
+        translationBuilder.add(ModBlocks.COBBLED_BLACKSTONE_STAIRS, "Cobbled Blackstone Stairs");
+        translationBuilder.add(ModBlocks.COBBLED_BLACKSTONE_WALL, "Cobbled Blackstone Wall");
+        translationBuilder.add(ModBlocks.COBBLED_BLACKSTONE_SLAB, "Cobbled Blackstone Slab");
         translationBuilder.add(ModBlocks.GILDED_COBBLED_BLACKSTONE, "Gilded Cobbled Blackstone");
+        translationBuilder.add(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, "Gilded Cobbled Blackstone Stairs");
+        translationBuilder.add(ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, "Gilded Cobbled Blackstone Wall");
+        translationBuilder.add(ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, "Gilded Cobbled Blackstone Slab");
     }
 }
