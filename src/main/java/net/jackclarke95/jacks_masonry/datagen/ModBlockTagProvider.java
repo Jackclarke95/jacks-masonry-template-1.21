@@ -18,10 +18,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.GILDED_BLACKSTONE_STAIRS)
                 .add(ModBlocks.GILDED_BLACKSTONE_WALL)
-                .add(ModBlocks.GILDED_BLACKSTONE_SLAB);
-
-        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.GILDED_BLACKSTONE_WALL);
-        getOrCreateTagBuilder(BlockTags.STAIRS).add(ModBlocks.GILDED_BLACKSTONE_STAIRS);
-        getOrCreateTagBuilder(BlockTags.SLABS).add(ModBlocks.GILDED_BLACKSTONE_SLAB);
+                .add(ModBlocks.GILDED_BLACKSTONE_SLAB)
+                .add(ModBlocks.COBBLED_BLACKSTONE)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE);
     }
 }

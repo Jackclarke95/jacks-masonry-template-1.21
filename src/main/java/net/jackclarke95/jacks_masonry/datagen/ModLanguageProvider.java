@@ -19,5 +19,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_STAIRS, "Gilded Blackstone Stairs");
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_WALL, "Gilded Blackstone Wall");
         translationBuilder.add(ModBlocks.GILDED_BLACKSTONE_SLAB, "Gilded Blackstone Slab");
+        translationBuilder.add(ModBlocks.COBBLED_BLACKSTONE, "Cobbled Blackstone");
+        translationBuilder.add(ModBlocks.GILDED_COBBLED_BLACKSTONE, "Gilded Cobbled Blackstone");
     }
 }

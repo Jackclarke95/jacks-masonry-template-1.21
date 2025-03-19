@@ -24,6 +24,14 @@ public class ModBlocks {
             new SlabBlock(AbstractBlock.Settings
                     .copy(Blocks.BLACKSTONE)));
 
+    public static final Block COBBLED_BLACKSTONE = registerBlock("cobbled_blackstone",
+            new Block((AbstractBlock.Settings
+                    .copy(Blocks.BLACKSTONE))));
+
+    public static final Block GILDED_COBBLED_BLACKSTONE = registerBlock("gilded_cobbled_blackstone",
+            new Block((AbstractBlock.Settings
+                    .copy(Blocks.BLACKSTONE))));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(JacksMasonry.MOD_ID, name), block);
@@ -41,6 +49,8 @@ public class ModBlocks {
             entries.add(ModBlocks.GILDED_BLACKSTONE_STAIRS);
             entries.add(ModBlocks.GILDED_BLACKSTONE_WALL);
             entries.add(ModBlocks.GILDED_BLACKSTONE_SLAB);
+            entries.add(ModBlocks.COBBLED_BLACKSTONE);
+            entries.add(ModBlocks.GILDED_COBBLED_BLACKSTONE);
         }));
     }
 }
