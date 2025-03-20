@@ -26,6 +26,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.GILDED_COBBLED_BLACKSTONE)
                 .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB)
                 .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL)
-                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS);
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS)
+                .add(ModBlocks.GILDED_BLACKSTONE_PILLAR)
+                .add(ModBlocks.POLISHED_GILDED_BLACKSTONE)
+                .add(ModBlocks.POLISHED_GILDED_BLACKSTONE_SLAB)
+                .add(ModBlocks.POLISHED_GILDED_BLACKSTONE_WALL)
+                .add(ModBlocks.POLISHED_GILDED_BLACKSTONE_STAIRS)
+                .add(ModBlocks.GILDED_BLACKSTONE_BRICKS)
+                .add(ModBlocks.GILDED_BLACKSTONE_BRICKS_SLAB)
+                .add(ModBlocks.GILDED_BLACKSTONE_BRICKS_WALL)
+                .add(ModBlocks.GILDED_BLACKSTONE_BRICKS_STAIRS);
+
+        getOrCreateTagBuilder(BlockTags.WALLS)
+                .add(ModBlocks.GILDED_BLACKSTONE_WALL)
+                .add(ModBlocks.COBBLED_BLACKSTONE_WALL)
+                .add(ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL)
+                .add(ModBlocks.POLISHED_GILDED_BLACKSTONE_WALL)
+                .add(ModBlocks.GILDED_BLACKSTONE_BRICKS_WALL);
     }
 }

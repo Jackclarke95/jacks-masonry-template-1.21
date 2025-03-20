@@ -3,8 +3,6 @@ package net.jackclarke95.jacks_masonry.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.jackclarke95.jacks_masonry.block.ModBlocks;
-import net.jackclarke95.jacks_masonry.item.ModItems;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -24,41 +22,68 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter recipeExporter) {
+        //region Cobbled Blackstone
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, Blocks.BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, ModBlocks.COBBLED_BLACKSTONE);
+
+        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
+        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
+        createStairsRecipe(ModBlocks.COBBLED_BLACKSTONE_STAIRS, Ingredient.ofItems(ModBlocks.COBBLED_BLACKSTONE))
+                .criterion("has_cobbled_blackstone", conditionsFromItem(ModBlocks.COBBLED_BLACKSTONE))
+                .offerTo(recipeExporter);
+        //endregion
+
+        //region Gilded Blackstone
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_STAIRS, Blocks.GILDED_BLACKSTONE);
+
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
         offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
         createStairsRecipe(ModBlocks.GILDED_BLACKSTONE_STAIRS, Ingredient.ofItems(Blocks.GILDED_BLACKSTONE))
                 .criterion("has_gilded_blackstone", conditionsFromItem(Blocks.GILDED_BLACKSTONE))
                 .offerTo(recipeExporter);
+        //endregion
 
-        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
-        offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
-        createStairsRecipe(ModBlocks.COBBLED_BLACKSTONE_STAIRS, Ingredient.ofItems(ModBlocks.COBBLED_BLACKSTONE, Blocks.BLACKSTONE))
-                .criterion("has_cobbled_blackstone", conditionsFromItem(Blocks.BLACKSTONE))
-                .criterion("has_cobbled_blackstone", conditionsFromItem(ModBlocks.COBBLED_BLACKSTONE))
-                .offerTo(recipeExporter);
+
+        //region Gilded Cobbled Blackstone
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, ModBlocks.GILDED_COBBLED_BLACKSTONE);
 
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, ModBlocks.GILDED_COBBLED_BLACKSTONE);
         offerWallRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, ModBlocks.GILDED_COBBLED_BLACKSTONE);
         createStairsRecipe(ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, Ingredient.ofItems(ModBlocks.GILDED_COBBLED_BLACKSTONE))
                 .criterion("has_gilded_cobbled_blackstone", conditionsFromItem(ModBlocks.GILDED_COBBLED_BLACKSTONE))
                 .offerTo(recipeExporter);
+        //endregion
 
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_STAIRS, Blocks.GILDED_BLACKSTONE);
+        //region Gilded Blackstone Pillar
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_PILLAR, Blocks.GILDED_BLACKSTONE);
+        //endregion
 
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_SLAB, ModBlocks.GILDED_COBBLED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_WALL, ModBlocks.GILDED_COBBLED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_COBBLED_BLACKSTONE_STAIRS, ModBlocks.GILDED_COBBLED_BLACKSTONE);
+        // Polished Gilded Blackstone
+        offerPolishedStoneRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_SLAB, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_SLAB, ModBlocks.POLISHED_GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_WALL, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_WALL, ModBlocks.POLISHED_GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_STAIRS, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GILDED_BLACKSTONE_STAIRS, ModBlocks.POLISHED_GILDED_BLACKSTONE);
+        //endregion
 
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, Blocks.BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, Blocks.BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, Blocks.BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_SLAB, ModBlocks.COBBLED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_WALL, ModBlocks.COBBLED_BLACKSTONE);
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE_STAIRS, ModBlocks.COBBLED_BLACKSTONE);
-
-        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_BLACKSTONE, Blocks.BLACKSTONE);
+        //region Gilded Blackstone Bricks
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_BRICKS, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_BRICKS_SLAB, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_BRICKS_WALL, Blocks.GILDED_BLACKSTONE);
+        offerStonecuttingRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GILDED_BLACKSTONE_BRICKS_STAIRS, Blocks.GILDED_BLACKSTONE);
+        //endregion
 
         List<ItemConvertible> GILDED_BLACKSTONE_SMELTABLES = List.of(ModBlocks.GILDED_COBBLED_BLACKSTONE);
 
